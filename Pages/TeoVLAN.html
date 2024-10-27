@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.15.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="icon" href="../Icono/icono.ico" type="iamge/x-icon">
+	<title>VLAN</title>
+
+	<!--Estilo de toda la pagina-->
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+		@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+		:root {
+			--primaer-color: #fff;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		body {
+			display: flex;
+			width: 100%;
+			height: auto;
+			justify-content: end;
+			background-image: url('https://images.pexels.com/photos/4280233/pexels-photo-4280233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			line-height: 1.6;
+			background-color: #000;
+		}
+
+		.contenedor{
+			max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+			color: #fff
+		}
+
+		p{
+			font-size: 22px;
+		}
+
+		li{
+			font-size: 22px;
+		}
+
+		h1 {
+            color: rgb(253, 0, 0);
+        }
+        h2 {
+            color: rgb(253, 0, 0);
+        }
+        .lista ul {
+            list-style-type: disc;
+			margin-left: 20px;
+        }
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+			height: 100vh;
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px;
+			align-items: center;
+			box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+			overflow: hidden;
+			transition: 1s;
+			background: rgba(250, 8, 8, 0.25);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			backdrop-filter: blur(30px);
+			-webkit-backdrop-filter: blur(3px);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			position: sticky;
+			top: 0;
+		}
+
+		.container .brand {
+			display: flex;
+			width: 100%;
+			height: 40px;
+			padding: 0 10px;
+			margin: 10px 0;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.container .brand h3 {
+			font-weight: 300;
+			font-size: 20px;
+			color: var(--primaer-color);
+		}
+
+		.container .brand a i {
+			color: var(--primaer-color);
+			font-size: 30px;
+		}
+
+		.container .navbar {
+			display: flex;
+			width: 90%;
+			height: auto;
+			margin: 10px 0;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.container .navbar ul {
+			list-style-type: none;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			align-items: flex-start;
+			justify-content: center;
+		}
+
+		.container .navbar ul li {
+			height: 60px;
+			width: 100%;
+			margin: 5px 0;
+		}
+
+		.container .navbar ul li a {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
+			border-radius: 7px;
+			align-items: center;
+			justify-content: left;
+		}
+
+		.add .navbar:nth-child(4) {
+			margin: 0;
+		}
+
+		.container .navbar ul li a {
+			color: var(--primaer-color);
+		}
+
+		.container .navbar ul li a span {
+			font-size: 14px;
+			font-weight: 300;
+		}
+
+		.container .navbar ul li a i {
+			display: flex;
+			font-size: 20px;
+			margin: 0 15px;
+		}
+
+		.container .navbar ul li a:hover,
+		.container .navbar ul li a:hover span,
+		.container .navbar ul li a:hover i {
+			background: #d5cfcf14;
+			backdrop-filter: blur(75px);
+			/* color: #000; */
+			transition: 0.5s all;
+
+		}
+
+		.container .navbar ul li a:hover{
+			box-shadow: 0 5px 5px #000;
+			transition: 0.5s all;
+		}
+
+		.container.active {
+			width: 70px;
+		}
+
+		.container.active .brand {
+			justify-content: center;
+		}
+
+		.container.active .navbar ul {
+			width: 90%;
+		}
+
+		.container.active .user {
+			width: 80%;
+			height: 100%;
+		}
+
+		.container.active .navbar ul li a {
+			justify-content: center;
+		}
+
+		.container.active .brand .logo,
+		.container.active .brand h3,
+		.container.active .navbar ul li a span,
+		.container.active .user .name {
+			display: none;
+		}
+
+		.log-out{
+			position: relative;
+			top: 150px;
+		}
+		
+        /* -- External Social Link CSS Styles -- */
+
+        #source-link {
+            top: 120px;
+        }
+
+        #source-link>i {
+            color: rgb(94, 106, 210);
+        }
+
+        #yt-link {
+            top: 65px;
+        }
+
+        #yt-link>i {
+            color: rgb(219, 31, 106);
+
+        }
+
+        #Fund-link {
+            top: 10px;
+        }
+
+        #Fund-link>i {
+            color: rgb(255, 251, 0);
+
+        }
+
+        .meta-link {
+            align-items: center;
+            backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: inline-flex;
+            gap: 5px;
+            left: 10px;
+            padding: 10px 20px;
+            position: fixed;
+            text-decoration: none;
+            transition: background-color 600ms, border-color 600ms;
+            z-index: 10000;
+        }
+
+        .meta-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-link>i,
+        .meta-link>span {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .meta-link>span {
+            color: white;
+            font-family: "Rubik", sans-serif;
+            transition: color 600ms;
+        }
+/*
+		@media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 5px;
+            }
+            body {
+                padding: 60px;
+            }
+
+			.contenedor{
+				padding: 60px;
+			}
+			
+			.container{
+				padding: 200px;
+			}
+        }*/
+	</style>
+
+</head>
+<body>
+	<!--Informacion de la pagina-->
+	<div class="contenedor">
+		<h1>VLAN</h1>
+    <p>La VLAN, también conocida como redes de área local virtual (Virtual Local Area Network), es una tecnología de red que permite la creación de redes lógicas independientes dentro de la misma red física. Se configuran con switches gestionables que soportan VLANs para segmentar correctamente la red. Es de suma importancia que los routers utilizados soporten VLAN, ya que, en caso contrario, no se podría gestionar todas ni permitir o denegar la comunicación entre ellas.</p>
+    <p>Las VLAN permiten dividir la red en grupos con una agrupación o estructura. Hoy en día, la mayoría de los routers profesionales e incluso sistemas operativos orientados a firewall/router como pfSense o OPNsense son viables, ya que estos soportan la configuración de VLAN porque es un estándar hoy en día. El uso de VLANs nos proporciona lo siguiente:</p>
+    <ol>
+        <li><strong>Seguridad:</strong> Gracias a las VLAN, nos permite crear redes lógicamente independientes, por lo tanto, podemos aislarlas para que solamente tengan conexión a Internet, y poder denegar el tráfico de una VLAN a otra.</li>
+        <li><strong>Segmentación:</strong> Las VLAN nos permiten segmentar todos los equipos en diferentes subredes, a cada subred le asignamos una VLAN diferente. Un ejemplo práctico es poder crear una subred de gestión interna de todos los routers, switches y puntos de acceso (Access Point). Podremos crear una subred principal para los administradores, otra para dispositivos IoT y, por último, una subred más para los invitados.</li>
+        <li><strong>Flexibilidad:</strong> Gracias a las VLAN, podremos colocar a los diferentes equipos en una subred o en otra de manera rápida y fácil, tener unas políticas de comunicación donde permitimos o denegamos el tráfico hacia otras VLANs o hacia Internet.</li>
+    </ol>
+
+    <h2>Configuración de una VLAN</h2>
+    <p>La VLAN se puede implementar en los siguientes entornos:</p>
+    <ul>
+        <li>Subred única</li>
+        <li>Varias subredes</li>
+        <li>LAN única</li>
+        <li>VLAN (sin etiquetado)</li>
+        <li>VLAN (etiqueta 802.1Q)</li>
+    </ul>
+    <p>Si se configura VLAN que solo tienen como miembros interfaces de red sin etiquetar, el número total de VLAN posibles se incrementa a la suma de interfaces de red disponibles en NetScaler. Si se requieren más subredes IP con una configuración de VLAN, se deberá utilizar la etiqueta 802.1Q.</p>
+    <p>Mediante la configuración de NetScaler para reenviar tráfico entre las redes en la capa 3. Para estos casos, una VLAN está asociada a una única subred IP. Los hosts de una VLAN que pertenecen a una sola subred utilizan la misma máscara de subred y una o más puertas de enlace predeterminadas conectadas a esa subred.</p>
+
+    <p>Las VLANs nos brindan la oportunidad de asociar de manera lógica a los diferentes usuarios, en función de las etiquetas, los puertos del switch, a su dirección MAC e incluso de la autenticación que hayan realizado en el sistema. Se pueden hallar en un solo switch gestionable, con el fin de asignar posteriormente a cada puerto el acceso a una determinada VLAN, pero también pueden existir en varios switches que están conectados entre ellos. Por lo tanto, las VLAN pueden extenderse por diversos switches a través de los enlaces troncales.</p>
+    
+    <p>Al crear y configurar una red VLAN en un router, no se pueden comunicar entre ellas, y la única manera de que se puedan comunicar las VLAN es ascendiendo a nivel de red (L3). Esto lo podemos hacer de diferentes formas:</p>
+    <ol>
+        <li>Usar un router/firewall con soporte para el estándar de VLANs. El switch pasará un troncal con todas las VLANs y el router dará de alta en su firmware o sistema operativo las diferentes VLANs, y permitirán el enrutamiento InterVLAN.</li>
+        <li>Usar un switch gestionable L3. Los switches gestionables L3 nos permiten crear interfaces IPv4 y IPv6, por lo que podremos crear una interfaz por cada VLAN que tengamos configurada en el switch y activar el enrutamiento InterVLAN.</li>
+    </ol>
+    
+    <p>Al configurar NetScaler, no debe crear subredes IP superpuestas, ya que al hacerlo se llega a impedir la función de la capa 3; para su configuración se requiere una configuración de alta disponibilidad de los dispositivos NetScaler, y deberán tener la misma configuración de hardware, y las VLAN recién configuradas deben ser imágenes reflejadas.</p>
+    <p>Cuando se sincroniza la configuración de VLAN entre los dispositivos NetScaler, la configuración adecuada se implementa automáticamente. Todos los aparatos tienen acciones idénticas como resultado. Por ejemplo, al agregar la interfaz de red 0/1 a la VLAN2, todos los dispositivos que participan en la configuración de alta disponibilidad se agregarán a la VLAN 2.</p>
+
+    <h2>Características de una VLAN</h2>
+    <p>Las principales características de las redes VLAN son:</p>
+    <ol>
+        <li>Se pueden utilizar para separar el tráfico de voz, datos y video para mejorar la calidad de rendimiento y servicio.</li>
+        <li>Las VLAN estáticas requieren que el administrador de red configure manualmente los puestos de switch para asignarlos a una red específica.</li>
+        <li>Las VLAN dinámicas requieren protocolos de descubrimiento como GVRP (GARP VLAN Registration Protocol) para asignar puestos de manera automática de switch a VLAN específicas.</li>
+        <li>Es una tecnología de red que permite segmentar una red física en varias redes lógicas separadas.</li>
+        <li>A medida que disminuye la cantidad de hosts conectados al dominio de transmisión, la implementación de VLAN puede reducir los riesgos de seguridad.</li>
+    </ol>
+
+    <h2>Ventajas y desventajas de las redes VLAN</h2>
+    <h3>Principales ventajas:</h3>
+    <ol>
+        <li><strong>Reducción de costos:</strong> Gracias al ahorro en el costo, resulta de la poca necesidad de actualizaciones de red caras y más usos eficientes de enlaces de ancho de banda existente.</li>
+        <li><strong>Seguridad:</strong> Los grupos que tienen datos sensibles se separan del resto de la red implementada, disminuyendo las posibilidades de que ocurran filtraciones de información confidencial.</li>
+        <li><strong>Mayor eficiencia del personal de TI:</strong> Las VLAN facilitan el manejo de la red debido a que los usuarios con requerimientos similares de red comparten la misma VLAN. Es fácil para el personal de TI identificar la función de una VLAN proporcionándole un nombre.</li>
+        <li><strong>Ayuda a administrar aplicaciones o proyectos de manera más simple:</strong> A su implementación, agregan dispositivos de red y usuarios para admitir los requerimientos geográficos o comerciales. Tener funciones separadas facilita la gestión de proyectos o el trabajo con aplicaciones especializadas, como una plataforma de desarrollo de educación virtual para el cuerpo docente.</li>
+    </ol>
+    
+    <h3>Principales desventajas:</h3>
+    <ol>
+        <li><strong>Falta de estándar:</strong> Se está implementando actualmente y las realiza cada fabricante, por tal motivo, para migrarse a esta solución se requiere un solo fabricante para todos los equipos.</li>
+        <li><strong>Limitaciones de transmisión:</strong> Para poder manejar el tráfico de transmisión de un ATM VLAN es necesario un servidor especial que es parte de la infraestructura. Este servidor tiene limitaciones en el número de transmisiones que reenvía.</li>
+        <li><strong>Limitación del aparato:</strong> El número de Ethernet en el cual se puede apoyar por cada aparato del borde es de 500. Esto, hipotéticamente hablando, representa una distribución de aproximadamente 20 aparatos por puerto de red.</li>
+    </ol>
+
+    <h2>Tipos de VLAN</h2>
+    <p>Hoy en día ya existen varios tipos de VLANs que todos podemos utilizar en los diferentes equipos, es decir, en los switches y puntos de acceso WiFi. Las diferentes VLANs que existen son las basadas en el estándar 802.1Q VLAN Tagging basado en etiquetas, las VLAN basadas en puerto, las VLAN basadas en MAC, las VLAN basadas en aplicaciones, aunque esta última no suele utilizarse habitualmente.</p>
+    <ol>
+        <li><strong>VLAN nativa:</strong> La VLAN nativa, también conocida como VLAN 1, tiene un papel fundamental en la segmentación de redes. Es la red VLAN por defecto en un switch y su función principal es manejar el tráfico que no lleva información con etiqueta de VLAN. Cuando los dispositivos envían tráfico a través de la red sin etiquetas VLAN, este tráfico se dirige de manera automática a la VLAN nativa.</li>
+        <li><strong>802.1Q VLAN Tagging:</strong> Es el tipo de VLAN más utilizada, utilizando el estándar 802.1Q para las etiquetas o quitar la etiqueta a las VLANs. Este estándar consiste en introducir una cabecera 802.1Q dentro de la trama Ethernet, cuyo objetivo es diferenciar las diferentes VLANs que tengamos configuradas. Al configurar y utilizar este estándar, podremos encontrar los diferentes puertos como “tagged” o “untagged”, es decir, con o sin etiqueta.</li>
+        <li><strong>VLAN basadas en puerto:</strong> Igualmente llamada Port Switching en los menús de configuración de los routers y switches, es la más extendida y utilizada por switches de gama muy baja. Cada uno de los puertos se asigna a una VLAN y los usuarios que estén conectados a ese puerto pertenecen a la VLAN asignada. El inconveniente es que no permite dinamismo a la hora de ubicar, y si el usuario cambia de emplazamiento, se deberá reconfigurar la red.</li>
+        <li><strong>VLAN basadas en MAC:</strong> Similar al tipo anterior, salvo que en vez de ser una asignación a nivel de puerto, lo es a nivel de dirección MAC del dispositivo. Una ventaja es que permite movilidad sin necesidad de cambios en la configuración del switch o del router. Solo los switches de gama más alta permiten VLAN basada en MAC; cuando el switch detecta que se ha conectado una determinada dirección MAC, la colocará automáticamente en una VLAN específica, útil en casos donde queremos movilidad.</li>
+        <li><strong>VLAN etiquetadas:</strong> Es el Estándar IEE 802.1. Permite a un dispositivo en red agregar información a una trama en la capa 2, de forma que pueda identificar la pertenencia a VLAN del marco. Permite que los entornos de red tengan VLAN, lo que permite la conexión de varios dispositivos; un solo dispositivo recibe el paquete, lee la etiqueta y reconoce la VLAN a la que pertenece la trama.</li>
+        <li><strong>VXLAN:</strong> Se trata de una red de área local virtual extensible. Superpone redes de capa 2 en una infraestructura de capa 3, encapsulando tramas de capa 2 en paquetes UDP. Estas redes de superposición se conocen como segmento VXLAN y se identifican mediante un identificador único de 24 bits, llamado VXLAN Network Identifier (NVI).</li>
+        <li><strong>VLAN Híbrida:</strong> Alternativa a las redes mencionadas, se basan en que los paquetes de datos se distribuyen según el etiquetado que se les asigna, marcando la división de la red por una conexión deliberada de los puertos.</li>
+        <li><strong>VLAN de gestión:</strong> Es una práctica en el diseño de redes utilizada exclusivamente para la administración de dispositivos de red. Su principal función es crear un entorno aislado donde el tráfico relacionado con las operaciones de gestión, configuración y monitoreo de dispositivos pueda fluir sin interferir en el tráfico de datos del usuario.</li>
+        <li><strong>VLAN de control:</strong> Implementada para transportar tráfico de manera específica destinado a funciones de control de red. Este tipo de VLAN está diseñado para manejar protocolos esenciales para el funcionamiento y mantenimiento de la red, como los protocolos de enrutamiento y etiquetado. Es fundamental para asegurar que estos protocolos de bajo nivel, que dirigen el tráfico en la red, tengan un camino de comunicación rápido y fiable.</li>
+    </ol>
+	</div>
+
+	<div class="container add" id="container" >
+		<div class="brand">
+			<h3>Raymundo</h3>
+			<a href="#" id="toggle"><i class="bi bi-list"></i></a>
+		</div>
+
+		<div class="navbar">
+			<ul>
+				<li>
+					<a href="https://www.instagram.com/punkzilla__/">
+					<i class="bi bi-person"></i><span>Usuario</span>
+				    </a>
+				</li>
+				<li>
+					<a href="../Pages/ConfSW.html"><i class="bi bi-folder">
+					  </i><span>Configuracion de un switch</span>
+				  </a>
+				</li>
+        <li>
+					<a href="../Pages/EstCable.html"><i class="bi bi-folder">
+					  </i><span>Estructura de cableado</span>
+				  </a>
+				</li>
+        <li>
+					<a href="../Pages/TiposCable.html"><i class="bi bi-folder">
+					  </i><span>Tipos de cableado para una VLAN</span>
+				  </a>
+				</li>
+				
+        <li>
+					<a href="../index.html"><i class="bi bi-house"></i><span>Home</span></a>
+        </li>
+		</div>
+	</div>
+
+	    <!--Social Liks codings below-->
+		<a id="source-link" class="meta-link" href="#" target="_blank">
+			<i class=""></i>
+			<span class="roboto-mono"> </span>
+		</a>
+	
+		<a id="yt-link" class="meta-link" href="#"
+			target="_blank">
+			<i class=""></i>
+			<span> </span>
+		</a>
+	
+		<a id="Fund-link" class="meta-link" href="#"
+			target="_blank">
+			<i class=""></i>
+			<span> </span>
+		</a>
+	<script>
+		var toggle = document.getElementById("toggle");
+		var container = document.getElementById("container");
+
+		toggle.onclick = function () {
+			container.classList.toggle('active');
+		}
+
+	</script>
+</body>
+</html>

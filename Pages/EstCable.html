@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.15.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="icon" href="../Icono/icono.ico" type="iamge/x-icon">
+	<title>Estructura</title>
+
+	<!--Estilo de toda la pagina-->
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+		@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+		:root {
+			--primaer-color: #fff;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		body {
+			display: flex;
+			width: 100%;
+			height: auto;
+			justify-content: end;
+			background-image: url('https://images.pexels.com/photos/4280233/pexels-photo-4280233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			line-height: 1.6;
+			background-color: #000;
+		}
+
+		.contenedor{
+			max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+			color: #fff
+		}
+
+		p{
+			font-size: 22px;
+		}
+
+		li{
+			font-size: 22px;
+		}
+
+		h1 {
+            color: rgb(253, 0, 0);
+        }
+        h2 {
+            color: rgb(253, 0, 0);
+        }
+        .lista ul {
+            list-style-type: disc;
+			margin-left: 20px;
+        }
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+			height: 100vh;
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px;
+			align-items: center;
+			box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+			overflow: hidden;
+			transition: 1s;
+			background: rgba(250, 8, 8, 0.25);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			backdrop-filter: blur(30px);
+			-webkit-backdrop-filter: blur(3px);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			position: sticky;
+			top: 0;
+		}
+
+		.container .brand {
+			display: flex;
+			width: 100%;
+			height: 40px;
+			padding: 0 10px;
+			margin: 10px 0;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.container .brand h3 {
+			font-weight: 300;
+			font-size: 20px;
+			color: var(--primaer-color);
+		}
+
+		.container .brand a i {
+			color: var(--primaer-color);
+			font-size: 30px;
+		}
+
+		.container .navbar {
+			display: flex;
+			width: 90%;
+			height: auto;
+			margin: 10px 0;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.container .navbar ul {
+			list-style-type: none;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			align-items: flex-start;
+			justify-content: center;
+		}
+
+		.container .navbar ul li {
+			height: 60px;
+			width: 100%;
+			margin: 5px 0;
+		}
+
+		.container .navbar ul li a {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
+			border-radius: 7px;
+			align-items: center;
+			justify-content: left;
+		}
+
+		.add .navbar:nth-child(4) {
+			margin: 0;
+		}
+
+		.container .navbar ul li a {
+			color: var(--primaer-color);
+		}
+
+		.container .navbar ul li a span {
+			font-size: 14px;
+			font-weight: 300;
+		}
+
+		.container .navbar ul li a i {
+			display: flex;
+			font-size: 20px;
+			margin: 0 15px;
+		}
+
+		.container .navbar ul li a:hover,
+		.container .navbar ul li a:hover span,
+		.container .navbar ul li a:hover i {
+			background: #d5cfcf14;
+			backdrop-filter: blur(75px);
+			/* color: #000; */
+			transition: 0.5s all;
+
+		}
+
+		.container .navbar ul li a:hover{
+			box-shadow: 0 5px 5px #000;
+			transition: 0.5s all;
+		}
+
+		.container.active {
+			width: 70px;
+		}
+
+		.container.active .brand {
+			justify-content: center;
+		}
+
+		.container.active .navbar ul {
+			width: 90%;
+		}
+
+		.container.active .user {
+			width: 80%;
+			height: 100%;
+		}
+
+		.container.active .navbar ul li a {
+			justify-content: center;
+		}
+
+		.container.active .brand .logo,
+		.container.active .brand h3,
+		.container.active .navbar ul li a span,
+		.container.active .user .name {
+			display: none;
+		}
+
+		.log-out{
+			position: relative;
+			top: 150px;
+		}
+		
+        /* -- External Social Link CSS Styles -- */
+
+        #source-link {
+            top: 120px;
+        }
+
+        #source-link>i {
+            color: rgb(94, 106, 210);
+        }
+
+        #yt-link {
+            top: 65px;
+        }
+
+        #yt-link>i {
+            color: rgb(219, 31, 106);
+
+        }
+
+        #Fund-link {
+            top: 10px;
+        }
+
+        #Fund-link>i {
+            color: rgb(255, 251, 0);
+
+        }
+
+        .meta-link {
+            align-items: center;
+            backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: inline-flex;
+            gap: 5px;
+            left: 10px;
+            padding: 10px 20px;
+            position: fixed;
+            text-decoration: none;
+            transition: background-color 600ms, border-color 600ms;
+            z-index: 10000;
+        }
+
+        .meta-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-link>i,
+        .meta-link>span {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .meta-link>span {
+            color: white;
+            font-family: "Rubik", sans-serif;
+            transition: color 600ms;
+        }
+
+		@media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 5px;
+            }
+            body {
+                padding: 60px;
+            }
+
+			.contenedor{
+				padding: 60px;
+			}
+			
+			.container{
+				padding: 200px;
+			}
+        }
+	</style>
+</head>
+
+
+<body>
+<!--Informacion de la pagina-->
+	<div class="contenedor">
+        <h1>Cableado Estructurado</h1>
+        <p>
+            El cableado estructurado es un sistema de infraestructura para telecomunicaciones que sigue estándares establecidos por organizaciones como la TIA/EIA y ISO/IEC, con el objetivo de soportar las necesidades actuales y futuras de transmisión de datos, voz y video en entornos empresariales o industriales. Este tipo de cableado proporciona una solución organizada, escalable y flexible, permitiendo a las organizaciones adaptarse a las demandas tecnológicas y de red con facilidad.
+        </p>
+        <h2>Normas del Cableado Estructurado:</h2>
+		<div class="lista">
+        <ul>
+            <li>Las normas de cableado estructurado son fundamentales para garantizar la interoperabilidad y rendimiento. Entre las más importantes se encuentran:</li>
+            <li>TIA/EIA-568: Define los estándares para el cableado en edificios comerciales.</li>
+            <li>ISO/IEC 11801: Establece requisitos para el cableado en aplicaciones de telecomunicaciones.</li>
+            <li>ANSI/TIA-942: Se utiliza principalmente en centros de datos.</li>
+            <li>IEEE 802.11: Se utiliza en la mayoría de las redes domésticas y de oficina para permitir que las computadoras portátiles, impresoras, teléfonos inteligentes y otros dispositivos.</li>
+        </ul>
+	</div>
+		<img src="../img/cable1.png" alt="">
+
+		<h1>Categorías de Cables</h1>
+    <p>Los cables de red se clasifican en categorías según su capacidad de transmisión:</p>
+    <ul>
+        <li><strong>CAT1</strong> (No reconocido por la EIA/TIA): se utiliza normalmente para el cable telefónico. Este tipo de cable no soporta el tráfico de redes informáticas y no está trenzado. El CAT1 también lo utilizan las empresas de telecomunicaciones que prestan servicios RDSI y RTC. En estos casos, el cableado entre la sede del cliente y la red de la empresa de telecomunicaciones se realiza con cable de tipo CAT1.</li>
+        <li><strong>CAT2</strong> (No reconocido por la EIA/TIA): permite la transmisión de datos a velocidades de hasta 4 Mbps (megabits por segundo).</li>
+        <li><strong>CAT3</strong> (No reconocido por la EIA/TIA): permite la transmisión de datos a velocidades de hasta 16 Mbps (megabits por segundo), este tipo de cables se utilizó ampliamente a principios de los 90 para Ethernet 10BASE-T y, debido a que el cableado puede durar hasta 20 años, es factible encontrar redes en buen estado. En general, se considera obsoleto para las redes de datos.</li>
+        <li><strong>CAT4</strong> (No reconocido por la EIA/TIA): Proporcionan 20 MHz de ancho de banda para velocidades de hasta 16 Mbps. Se desarrolló inicialmente para redes Token Ring, 10Base-T y 100Base-4. En un principio, la ANSI/EIA/TIA 568 especificaba que el Cat 4 tenía una capacidad de 20 MHz, mientras que el ISO/IEC 11801 especificaba hasta 100 MHz. Actualmente, los cables Cat 4 ya no se utilizan y no son compatibles con los estándares actuales de cableado de datos.</li>
+        <li><strong>CAT5</strong> (No reconocido por la EIA/TIA): es un cable multipar de alto rendimiento formado por conductores de par trenzado, utilizado principalmente para la transmisión de datos. El cable CAT5 básico se diseñó para características de hasta 100 MHz y soportaba redes de 10 ó 100 Mbps. El cable CAT5 fue sustituido posteriormente por la especificación CAT5e, que soporta velocidades de hasta 1 Gbps.</li>
+        <li><strong>CAT5e</strong>: es la especificación de cableado más utilizada en todo el mundo y, a diferencia de los cables de categoría que le siguen, es muy indulgente cuando no se cumplen las directrices de terminación y despliegue del cable. Con el fin de soportar velocidades de hasta 1 Gbps, CAT5e incluye dos torsiones por pulgada (TPI) en el diseño del cable, lo que proporciona una especificación de diafonía mejorada.</li>
+        <li><strong>CAT6</strong>: se está implantando actualmente en hogares y empresas de todo el mundo y ofrece mejoras significativas con respecto a las generaciones anteriores de cables de red. La principal mejora del cable CAT6 con respecto al CAT5e es su capacidad para soportar Gigabit Ethernet en longitudes de hasta 100 metros. Esto permite tender un solo cable en lugar de varios para cada piso. Las especificaciones mejoradas también permiten mayores requisitos de ancho de banda.</li>
+        <li><strong>CAT6A</strong>: es un cable Ethernet de alta velocidad que admite velocidades de transferencia de datos de hasta 10 Gbps con un ancho de banda máximo de 500 MHz. Tiene torsiones adicionales y más apretadas, con aislamiento adicional para reducir la diafonía. CAT6A es retrocompatible con CAT6 y CAT5E.</li>
+        <li><strong>CAT7 y CAT7A</strong> (No reconocido por la EIA/TIA): Se define y especifica en la norma ISO/IEC 11801:2002, Clase F. El cable Cat 7 es compatible con los estándares y equipos de cableado Cat 6, Cat 5 y Cat 5/e. Puede proporcionar una velocidad de ancho de banda de 600 MHz y 100 MHz respectivamente. Este tipo de cableado utiliza un conector TERA, el cual fue desarrollado por Siemon Company. Este conector NO es compatible con el RJ45, sin embargo, una alternativa compatible con el RJ45 es el conector GG45, el cual cuenta con la versión ARJ45 HS que es compatible con CAT 6.</li>
+    </ul>
+
+    <h2>¿Qué es un PoE y cómo funciona?</h2>
+    <p>Power over Ethernet (PoE) permite que sus cables de red lleven alimentación eléctrica a cualquier dispositivo en una red sin necesidad de utilizar una toma de corriente externa. Permite a un cable de alimentación eléctrica, así como conectar un dispositivo a su red.</p>
+    <p>La forma de funcionamiento es sencilla. Un cable Ethernet que cumple con los estándares CAT5e (o superior) consta de cuatro pares trenzados y PoE envía la alimentación a través de estos pares a los dispositivos preparados para PoE. Con un método se utilizan dos pares de hilos para transmitir datos y los dos pares restantes se utilizan para la alimentación eléctrica. Con otro método, los datos y la alimentación se envían por el mismo par.</p>
+	<img src="../img/poe.png" alt="">
+
+	<h1>Componentes del Cableado Estructurado</h1>
+    <ol>
+        <li>
+            <strong>Cableado Horizontal:</strong>
+            <p>Es el sistema que conecta el área de trabajo con el armario de telecomunicaciones más cercano. Generalmente, se utilizan cables de par trenzado (como UTP o FTP) y va desde el panel de parcheo hasta las tomas de red.</p>
+        </li>
+        <li>
+            <strong>Cableado Vertical (Backbone):</strong>
+            <p>Este tipo de cableado interconecta los diferentes armarios de telecomunicaciones y conecta los equipos de red principales con los secundarios a través de cables de mayor capacidad (fibra óptica o cobre de gran diámetro). El backbone permite la conexión entre pisos o edificios.</p>
+        </li>
+        <li>
+            <strong>Armarios de Telecomunicaciones (TR):</strong>
+            <p>También conocidos como cuartos de telecomunicaciones, son espacios físicos donde se ubican los equipos de red como switches, routers, servidores y paneles de parcheo. Cada piso o zona de un edificio tiene al menos uno de estos armarios.</p>
+        </li>
+        <li>
+            <strong>Panel de Parcheo (Patch Panel):</strong>
+            <p>Este es un dispositivo clave para organizar y gestionar el cableado de red. En él se conectan los cables que provienen de las áreas de trabajo y se organizan para su conexión con los switches u otros equipos de red.</p>
+        </li>
+        <li>
+            <strong>Área de Trabajo:</strong>
+            <p>El área de trabajo es el lugar donde los usuarios finales interactúan con el sistema de cableado estructurado, generalmente a través de tomas de red Ethernet. Estas tomas se conectan directamente al cableado horizontal.</p>
+        </li>
+        <li>
+            <strong>Cables de Parcheo (Patch Cords):</strong>
+            <p>Son cables cortos que conectan los equipos de red (como switches o routers) con el panel de parcheo o con las estaciones de trabajo.</p>
+        </li>
+    </ol>
+	<img src="../img/edif.png" alt="">
+
+    </div>
+	
+<!-- Navbar-->
+	<div class="container add" id="container" >
+		<div class="brand">
+			<h3>Aldair</h3>
+			<a href="#" id="toggle"><i class="bi bi-list"></i></a>
+		</div>
+		<div class="navbar">
+			<ul>
+				<li>
+					<a href="https://www.instagram.com/aldair__vch?igsh=ZHg1ZjZwNjhoc3A1&utm_source=qr">
+					<i class="bi bi-person"></i><span>Usuario</span>
+				    </a>
+				</li>
+				<li>
+					<a href="../Pages/ConfSW.html"><i class="bi bi-folder">
+					  </i><span>Configuracion de un switch</span>
+				  </a>
+				</li>
+        <li>
+					<a href="../Pages/TeoVLAN.html"><i class="bi bi-folder">
+					  </i><span>Que es una VLAN</span>
+				  </a>
+				</li>
+        <li>
+					<a href="../Pages/TiposCable.html"><i class="bi bi-folder">
+					  </i><span>Tipos de cableado para una VLAN</span>
+				  </a>
+				</li>
+				
+        <li>
+					<a href="../index.html"><i class="bi bi-house"></i><span>Home</span></a>
+        </li>
+		</div>
+	</div>
+
+	    <!--Links extras o decoracion
+		<a id="source-link" class="meta-link" href="#" target="_blank">
+			<i class=""></i>
+			<span class="roboto-mono"> </span>
+		</a>
+	
+		<a id="yt-link" class="meta-link" href="#"
+			target="_blank">
+			<i class=""></i>
+			<span> </span>
+		</a>
+	
+		<a id="Fund-link" class="meta-link" href="#"
+			target="_blank">
+			<i class=""></i>
+			<span> </span>
+		</a>-->
+
+	<script id="activarBarra">
+		var toggle = document.getElementById("toggle");
+		var container = document.getElementById("container");
+
+		toggle.onclick = function () {
+			container.classList.toggle('active');
+		}
+
+	</script>
+</body>
+</html>

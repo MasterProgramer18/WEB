@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.15.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="icon" href="../Icono/icono.ico" type="iamge/x-icon">
+	<title>Tipos</title>
+
+	<!--Estilo de toda la pagina-->
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+		@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+		:root {
+			--primaer-color: #fff;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		body {
+			display: flex;
+			width: 100%;
+			height: auto;
+			justify-content: end;
+			background-image: url('https://images.pexels.com/photos/4280233/pexels-photo-4280233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			line-height: 1.6;
+			background-color: #000;
+		}
+
+		.contenedor{
+			max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+			color: #fff
+		}
+
+		p{
+			font-size: 22px;
+		}
+
+		li{
+			font-size: 22px;
+		}
+
+		h1 {
+            color: rgb(253, 0, 0);
+        }
+        h2 {
+            color: rgb(253, 0, 0);
+        }
+        .lista ul {
+            list-style-type: disc;
+			margin-left: 20px;
+        }
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+			height: 100vh;
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px;
+			align-items: center;
+			box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+			overflow: hidden;
+			transition: 1s;
+			background: rgba(250, 8, 8, 0.25);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			backdrop-filter: blur(30px);
+			-webkit-backdrop-filter: blur(3px);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			position: sticky;
+			top: 0;
+		}
+
+		.container .brand {
+			display: flex;
+			width: 100%;
+			height: 40px;
+			padding: 0 10px;
+			margin: 10px 0;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.container .brand h3 {
+			font-weight: 300;
+			font-size: 20px;
+			color: var(--primaer-color);
+		}
+
+		.container .brand a i {
+			color: var(--primaer-color);
+			font-size: 30px;
+		}
+
+		.container .navbar {
+			display: flex;
+			width: 90%;
+			height: auto;
+			margin: 10px 0;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.container .navbar ul {
+			list-style-type: none;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			align-items: flex-start;
+			justify-content: center;
+		}
+
+		.container .navbar ul li {
+			height: 60px;
+			width: 100%;
+			margin: 5px 0;
+		}
+
+		.container .navbar ul li a {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
+			border-radius: 7px;
+			align-items: center;
+			justify-content: left;
+		}
+
+		.add .navbar:nth-child(4) {
+			margin: 0;
+		}
+
+		.container .navbar ul li a {
+			color: var(--primaer-color);
+		}
+
+		.container .navbar ul li a span {
+			font-size: 14px;
+			font-weight: 300;
+		}
+
+		.container .navbar ul li a i {
+			display: flex;
+			font-size: 20px;
+			margin: 0 15px;
+		}
+
+		.container .navbar ul li a:hover,
+		.container .navbar ul li a:hover span,
+		.container .navbar ul li a:hover i {
+			background: #d5cfcf14;
+			backdrop-filter: blur(75px);
+			/* color: #000; */
+			transition: 0.5s all;
+
+		}
+
+		.container .navbar ul li a:hover{
+			box-shadow: 0 5px 5px #000;
+			transition: 0.5s all;
+		}
+
+		.container.active {
+			width: 70px;
+		}
+
+		.container.active .brand {
+			justify-content: center;
+		}
+
+		.container.active .navbar ul {
+			width: 90%;
+		}
+
+		.container.active .user {
+			width: 80%;
+			height: 100%;
+		}
+
+		.container.active .navbar ul li a {
+			justify-content: center;
+		}
+
+		.container.active .brand .logo,
+		.container.active .brand h3,
+		.container.active .navbar ul li a span,
+		.container.active .user .name {
+			display: none;
+		}
+
+		.log-out{
+			position: relative;
+			top: 150px;
+		}
+		
+        /* -- External Social Link CSS Styles -- */
+
+        #source-link {
+            top: 120px;
+        }
+
+        #source-link>i {
+            color: rgb(94, 106, 210);
+        }
+
+        #yt-link {
+            top: 65px;
+        }
+
+        #yt-link>i {
+            color: rgb(219, 31, 106);
+
+        }
+
+        #Fund-link {
+            top: 10px;
+        }
+
+        #Fund-link>i {
+            color: rgb(255, 251, 0);
+
+        }
+
+        .meta-link {
+            align-items: center;
+            backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: inline-flex;
+            gap: 5px;
+            left: 10px;
+            padding: 10px 20px;
+            position: fixed;
+            text-decoration: none;
+            transition: background-color 600ms, border-color 600ms;
+            z-index: 10000;
+        }
+
+        .meta-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-link>i,
+        .meta-link>span {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .meta-link>span {
+            color: white;
+            font-family: "Rubik", sans-serif;
+            transition: color 600ms;
+        }
+
+		@media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 5px;
+            }
+            body {
+                padding: 60px;
+            }
+
+			.contenedor{
+				padding: 60px;
+			}
+			
+			.container{
+				padding: 200px;
+			}
+        }
+	</style>
+
+</head>
+<body>
+
+	<div class="contenedor">
+		<h1>Tipos de Cableado para VLAN</h1>
+
+    <h2>1. Cable UTP (Par Trenzado Sin Blindaje)</h2>
+    <ul>
+        <li><strong>Más común:</strong> Es el tipo de cable más utilizado debido a su flexibilidad, bajo costo y facilidad de instalación.</li>
+        <li><strong>Categorías:</strong> Cat5e, Cat6, Cat6a y Cat7, cada una con diferentes velocidades y distancias de transmisión.</li>
+        <li><strong>Ideal para:</strong> La mayoría de las redes de oficina y hogar.</li>
+    </ul>
+
+    <h2>2. Cable FTP (Foil Twisted Pair)</h2>
+    <ul>
+        <li><strong>Con blindaje:</strong> Cada par de hilos está envuelto en una lámina de aluminio para reducir interferencias.</li>
+        <li><strong>Mayor protección:</strong> Ofrece una mejor protección contra interferencias electromagnéticas que el UTP.</li>
+        <li><strong>Uso:</strong> Se utiliza en entornos con mucho ruido eléctrico o cuando se requiere una mayor seguridad en la transmisión de datos.</li>
+    </ul>
+
+    <h2>3. Cable STP (Shielded Twisted Pair)</h2>
+    <ul>
+        <li><strong>Mayor protección:</strong> Cada par de hilos y el conjunto de pares están envueltos en una malla de metal para una mayor protección.</li>
+        <li><strong>Rendimiento:</strong> Ofrece un rendimiento superior al UTP y FTP en entornos muy ruidosos.</li>
+        <li><strong>Costo:</strong> Es más costoso y menos flexible que los cables UTP y FTP.</li>
+        <li><strong>Uso:</strong> Se utiliza en aplicaciones industriales y en entornos donde la integridad de los datos es crítica.</li>
+    </ul>
+
+    <h2>4. Cable de Fibra Óptica</h2>
+    <ul>
+        <li><strong>Transmisión de luz:</strong> Utiliza pulsos de luz para transmitir datos.</li>
+        <li><strong>Inmunidad al ruido:</strong> No es susceptible a interferencias electromagnéticas.</li>
+        <li><strong>Alta velocidad:</strong> Capaz de transmitir datos a velocidades muy altas.</li>
+        <li><strong>Distancia:</strong> Permite cubrir distancias mucho mayores que los cables de cobre.</li>
+        <li><strong>Uso:</strong> Se utiliza en redes de área extensa (WAN), centros de datos y aplicaciones que requieren altas velocidades y largas distancias.</li>
+    </ul>
+	<img src="../img/tabla.jpg" align="right" alt="">
+	<img src="../img/utp.png" alt="">
+
+	<h1>Instalación Correcta de Diferentes Tipos de Cable</h1>
+    <p>La instalación correcta del cableado es fundamental para garantizar el rendimiento y la durabilidad de una red. A continuación, te proporcionaré una guía general para la instalación de los tipos de cable más comunes en redes de datos:</p>
+
+    <h2>Herramientas Necesarias:</h2>
+    <ul>
+        <li>Pelacables: Para retirar la cubierta exterior y el aislamiento de los cables.</li>
+        <li>Crimpadora: Para asegurar los conectores RJ45 en los extremos de los cables.</li>
+        <li>Tester de cables: Para verificar la continuidad y el cableado correcto.</li>
+        <li>Destornilladores: Para abrir paneles de conexión y realizar ajustes.</li>
+        <li>Tijeras para cortar cables: Para cortar los cables a la medida adecuada.</li>
+    </ul>
+
+    <h2>Pasos Generales para la Instalación:</h2>
+    <ol>
+        <li><strong>Planificación:</strong> Diseña un diagrama de la red para determinar la ubicación de los dispositivos y la longitud de los cables necesarios.</li>
+        <li><strong>Preparación de los cables:</strong>
+            <ul>
+                <li>Mide y corta los cables a la longitud requerida, dejando suficiente margen para los conectores.</li>
+                <li>Retira la cubierta exterior del cable utilizando el pelacables.</li>
+                <li>Separa los pares de hilos y ordénalos según el estándar de cableado (EIA/TIA 568A o 568B).</li>
+            </ul>
+        </li>
+        <li><strong>Crimpado de conectores:</strong>
+            <ul>
+                <li>Inserta los hilos del cable en el conector RJ45 siguiendo el orden establecido en el estándar elegido.</li>
+                <li>Asegúrate de que los hilos estén completamente insertados y no estén doblados.</li>
+                <li>Utiliza la crimpadora para asegurar el conector al cable.</li>
+            </ul>
+        </li>
+        <li><strong>Conexión de los dispositivos:</strong>
+            <ul>
+                <li>Conecta los cables a los puertos de los dispositivos (switches, routers, computadoras) correspondientes.</li>
+                <li>Verifica que los conectores estén bien asegurados.</li>
+            </ul>
+        </li>
+        <li><strong>Prueba de la conexión:</strong>
+            <ul>
+                <li>Utiliza un tester de cables para verificar la continuidad y el cableado correcto.</li>
+                <li>Realiza pruebas de ping entre los dispositivos conectados para asegurar la comunicación.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Consideraciones Específicas para Cada Tipo de Cable:</h2>
+    <ul>
+        <li><strong>UTP:</strong> Es el más fácil de instalar. Asegúrate de seguir el estándar de cableado elegido y de no doblar los hilos excesivamente.</li>
+        <li><strong>FTP:</strong> Requiere más cuidado al retirar la lámina de aluminio que protege los pares de hilos. Asegúrate de que la lámina no se dañe y de que esté conectada a tierra si es necesario.</li>
+        <li><strong>STP:</strong> Similar al FTP, pero con una malla metálica adicional. Requiere una instalación más cuidadosa y puede requerir herramientas especiales.</li>
+        <li><strong>Fibra óptica:</strong> Requiere herramientas y conocimientos especializados. Es importante evitar doblar excesivamente la fibra óptica y protegerla de la luz.</li>
+    </ul>
+
+    <h2>Consejos Adicionales:</h2>
+    <ul>
+        <li><strong>Seguridad:</strong> Siempre desconecta los equipos de la fuente de alimentación antes de realizar cualquier conexión.</li>
+        <li><strong>Organización:</strong> Mantén los cables ordenados y etiquetados para facilitar la identificación y el mantenimiento.</li>
+        <li><strong>Protección:</strong> Protege los cables de daños físicos y ambientales.</li>
+        <li><strong>Normas:</strong> Cumple con las normas de instalación eléctrica y de seguridad.</li>
+    </ul>
+
+    <p><strong>Importante:</strong> Si no te sientes seguro realizando la instalación, consulta a un profesional. Una instalación incorrecta puede afectar el rendimiento de tu red y causar problemas de seguridad.</p>
+<img src="../img/poncha.jpg" alt="">
+
+
+<h1>¿Cuál es la diferencia entre un cable Cat5e y Cat6?</h1>
+<p>La principal diferencia entre un cable Cat5e y Cat6 radica en su rendimiento y capacidad de transmisión de datos.</p>
+<ul>
+	<li><strong>Cat5e:</strong> Diseñado para velocidades de hasta 1 Gbps, es más flexible y económico. Sin embargo, su ancho de banda limitado puede ser un cuello de botella en redes más exigentes.</li>
+	<li><strong>Cat6:</strong> Ofrece un mayor ancho de banda, permitiendo velocidades de hasta 10 Gbps. Es más rígido y costoso, pero garantiza un rendimiento superior y menor interferencia.</li>
+</ul>
+<p>En resumen, si necesitas velocidades de hasta 1 Gbps y tienes un presupuesto limitado, Cat5e puede ser suficiente. Pero si requieres velocidades superiores o necesitas una red más estable y robusta, Cat6 es la mejor opción.</p>
+<img src="../img/Difcat.png" alt="">
+
+<h1>Topologías de Cableado en VLAN</h1>
+    <ul>
+		<img src="../img/Topolo.png" align="right" alt="">
+        <li><strong>Estrella:</strong> La topología más común en las redes LAN. Cada dispositivo se conecta a un switch central.</li>
+        <li><strong>Bus:</strong> Los dispositivos se conectan a un cable común. Menos flexible y más susceptible a fallos.</li>
+        <li><strong>Anillo:</strong> Los dispositivos se conectan en un anillo cerrado. Ofrece redundancia y tolerancia a fallos.</li>
+    </ul>
+
+	<h1>Protocolos de Enrutamiento en VLAN</h1>
+    <ul>
+        <li><strong>VLAN trunking:</strong> Permite transportar múltiples VLANs en un solo enlace físico.</li>
+        <li><strong>Protocolos de enrutamiento:</strong> OSPF, RIP, BGP se utilizan para enrutar el tráfico entre VLANs.</li>
+    </ul>
+	<img src="../img/pa.png" alt="">
+
+	<h1>Consideraciones Adicionales</h1>
+    <ul>
+        <li><strong>Calidad de los componentes:</strong> Utiliza conectores y herramientas de calidad para garantizar una instalación adecuada.</li>
+        <li><strong>Normativas:</strong> Cumple con las normativas locales y estándares de la industria.</li>
+        <li><strong>Mantenimiento:</strong> Realiza un mantenimiento preventivo para asegurar el correcto funcionamiento de la red.</li>
+    <img src="../img/rack.png" alt="">
+	</ul>
+
+    <p>En resumen, la elección del cableado para una VLAN dependerá de factores como la distancia, la velocidad requerida, el entorno y el presupuesto. Al evaluar estas variables y considerar las diferentes opciones disponibles, podrás seleccionar el cableado más adecuado para tu red.</p>
+
+	</div>
+
+	<div class="container add" id="container" >
+		<div class="brand">
+			<h3>Alexis</h3>
+			<a href="#" id="toggle"><i class="bi bi-list"></i></a>
+		</div>
+
+		<div class="navbar">
+			<ul>
+				<li>
+					<a href="https://www.instagram.com/alexisfragosoo/profilecard/?igsh=MXRodWQ0OHRzNjFlbQ==">
+					<i class="bi bi-person"></i><span>Usuario</span>
+				    </a>
+				</li>
+				<li>
+					<a href="../Pages/ConfSW.html"><i class="bi bi-folder">
+					  </i><span>Configuracion de switch</span>
+				  </a>
+				</li>
+        <li>
+					<a href="../Pages/EstCable.html"><i class="bi bi-folder">
+					  </i><span>Estructura de cableado</span>
+				  </a>
+				</li>
+        <li>
+					<a href="../Pages/TeoVLAN.html"><i class="bi bi-folder">
+					  </i><span>Que es una VLAN</span>
+				  </a>
+				</li>
+				
+        <li>
+					<a href="../index.html"><i class="bi bi-house"></i><span>Home</span></a>
+        </li>
+		</div>
+	</div>
+
+	    <!--Social Liks codings below-->
+		<a id="source-link" class="meta-link" href="#" target="_blank">
+			<i class=""></i>
+			<span class="roboto-mono"> </span>
+		</a>
+	
+		<a id="yt-link" class="meta-link" href="#"
+			target="_blank">
+			<i class=""></i>
+			<span> </span>
+		</a>
+	
+		<a id="Fund-link" class="meta-link" href="#"
+			target="_blank">
+			<i class=""></i>
+			<span> </span>
+		</a>
+	<script>
+		var toggle = document.getElementById("toggle");
+		var container = document.getElementById("container");
+
+		toggle.onclick = function () {
+			container.classList.toggle('active');
+		}
+
+	</script>
+</body>
+</html>
